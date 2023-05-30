@@ -1,4 +1,3 @@
-import { CONVERT_TO, ConvertTo } from "@/app/page";
 import {
   Input,
   Select,
@@ -9,6 +8,7 @@ import {
   SelectValue,
 } from "@edge-ui/react";
 import { useState } from "react";
+import { CONVERT_TO, ConvertTo } from "../table";
 
 interface Props {
   convertTo: ConvertTo;

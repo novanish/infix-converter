@@ -1,4 +1,3 @@
-import { ConvertTo } from "@/app/page";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -8,6 +7,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@edge-ui/react";
+import { ConvertTo } from "../table";
 
 interface Props {
   isOpen: boolean;

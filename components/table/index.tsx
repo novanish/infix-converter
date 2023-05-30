@@ -1,4 +1,3 @@
-import { ConvertTo } from "@/app/page";
 import { Info } from "@/lib/postfix";
 import {
   Table,
@@ -14,6 +13,8 @@ interface Props {
   info: Info;
   convertTo: ConvertTo;
 }
+export const CONVERT_TO = { postfix: "POSTFIX", prefix: "PREFIX" } as const;
+export type ConvertTo = (typeof CONVERT_TO)[keyof typeof CONVERT_TO];
 
 const GroceryList = [
   {
@@ -79,7 +80,10 @@ export function TableUI({ info }: Props) {
       <TableHeader className="border-b-2">
         <TableRow>
           {["Symbol", "Stack", "Postfix"].map((data) => (
-            <TableHead className="font-semibold last:text-right text-lg" key={data}>
+            <TableHead
+              className="font-semibold last:text-right text-lg"
+              key={data}
+            >
               {data}
             </TableHead>
           ))}

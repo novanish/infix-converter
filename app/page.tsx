@@ -1,7 +1,7 @@
 "use client";
 import { Dialog } from "@/components/dialog";
 import { Form } from "@/components/form";
-import { TableUI } from "@/components/table";
+import { CONVERT_TO, ConvertTo, TableUI } from "@/components/table";
 import { Info, toPostfix } from "@/lib/postfix";
 import {
   Heading,
@@ -17,9 +17,6 @@ export const metadata = {
   title: "Infix Converter",
   description: "Convert infix to postfix or prefix",
 };
-
-export const CONVERT_TO = { postfix: "POSTFIX", prefix: "PREFIX" } as const;
-export type ConvertTo = (typeof CONVERT_TO)[keyof typeof CONVERT_TO];
 
 type State = {
   convertTo: ConvertTo;
@@ -54,7 +51,6 @@ export default function Home() {
     setState((p) => ({ ...p, ...output }));
   }
 
-  
   return (
     <>
       <Center>
