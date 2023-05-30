@@ -13,11 +13,6 @@ import {
 import { AlertCircle } from "lucide-react";
 import { useState } from "react";
 
-export const metadata = {
-  title: "Infix Converter",
-  description: "Convert infix to postfix or prefix",
-};
-
 type State = {
   convertTo: ConvertTo;
   info: Info;
