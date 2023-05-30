@@ -1,3 +1,5 @@
+import { ConvertTo } from "@/app/page";
+import { Info } from "@/lib/postfix";
 import {
   Table,
   TableBody,
@@ -7,6 +9,11 @@ import {
   TableHeader,
   TableRow,
 } from "@edge-ui/react";
+
+interface Props {
+  info: Info;
+  convertTo: ConvertTo;
+}
 
 const GroceryList = [
   {
@@ -65,26 +72,25 @@ const GroceryList = [
   },
 ];
 
-export function TableUI() {
+export function TableUI({ info }: Props) {
   return (
     <Table className="max-w-[700px] mx-auto border-2">
-      <TableCaption>Infix to Postfix</TableCaption>
+      <TableCaption className="capitalize">Infix to Postfix</TableCaption>
       <TableHeader className="border-b-2">
         <TableRow>
-          {["Symbol", "Stack", "Postfix", "Amount"].map((data) => (
-            <TableHead className="font-semibold last:text-right" key={data}>
+          {["Symbol", "Stack", "Postfix"].map((data) => (
+            <TableHead className="font-semibold last:text-right text-lg" key={data}>
               {data}
             </TableHead>
           ))}
         </TableRow>
       </TableHeader>
       <TableBody className="border-2">
-        {GroceryList.map((item, idx) => (
-          <TableRow key={idx}>
-            <TableCell className="font-medium">{item.ID}</TableCell>
-            <TableCell>{item.Item}</TableCell>
-            <TableCell>{item.Quantity}</TableCell>
-            <TableCell className="text-right">{item.Amount}</TableCell>
+        {info.map(({ symbol, stack, postfix }, idx) => (
+          <TableRow key={idx} className="text-lg">
+            <TableCell className="font-medium">{symbol}</TableCell>
+            <TableCell>{stack}</TableCell>
+            <TableCell className="text-right">{postfix}</TableCell>
           </TableRow>
         ))}
       </TableBody>
