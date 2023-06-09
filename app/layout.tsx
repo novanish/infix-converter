@@ -1,12 +1,14 @@
 import "@edge-ui/react/styles.css";
 import "../style/globals.css";
 import { Inter } from "next/font/google";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Infix Converter",
-  description: "Convert infix to postfix or prefix",
+  description: "Convert infix expression to postfix or prefix expression",
+  keywords: ["infix", "postfix", "prefix", "converter", "expression"],
 };
 
 export default function RootLayout({
