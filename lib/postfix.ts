@@ -23,6 +23,7 @@ export function toPostfix(expression: string) {
 
   for (let index = 0; index < length; index++) {
     const symbol = expression[index];
+    if (symbol === " ") continue;
 
     if (isDigitOrAlphabet(symbol)) {
       output.postfix += symbol;
@@ -37,17 +38,18 @@ export function toPostfix(expression: string) {
         const symbol = stack.pop();
         if (symbol === "(") break;
 
-        output.postfix += symbol;
+        output.postfix += " " + symbol;
       }
     }
 
     if (isOperator(symbol)) {
+      output.postfix += " ";
       while (
         !stack.isEmpty() &&
         getPrecedence(stack.peek()) >= getPrecedence(symbol) &&
         stack.peek() !== "("
       ) {
-        output.postfix += stack.pop();
+        output.postfix += " " + stack.pop() + " ";
       }
 
       stack.push(symbol);
@@ -62,7 +64,7 @@ export function toPostfix(expression: string) {
 
   const isEmpty = stack.isEmpty();
   while (!stack.isEmpty()) {
-    output.postfix += stack.pop();
+    output.postfix += " " + stack.pop() + " ";
   }
 
   if (!isEmpty) {

@@ -1,9 +1,9 @@
 import "@edge-ui/react/styles.css";
 import "../style/globals.css";
-import { Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Infix Converter",
@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${spaceGrotesk.className} bg-[#fff3e9] text-[#333]`}>
         <main className="px-7 md:px-10 lg:px-14 space-y-16  max-w-7xl mx-auto mb-28 mt-14">
           {children}
         </main>
