@@ -13,7 +13,7 @@ export class Stack<T> {
   }
 
   isFull() {
-    return this.top === this.totalSize;
+    return this.top + 1 === this.totalSize;
   }
 
   get size() {
@@ -25,15 +25,15 @@ export class Stack<T> {
   }
 
   push(item: T) {
-    if (this.totalSize === ++this.top) {
+    if (this.isFull()) {
       throw new Error(
-        `Stack overflow: Can't add ${this.top + 1}th item to ${
+        `Stack overflow: Can't add ${this.top + 2}th item to ${
           this.totalSize
         } size stack`
       );
     }
 
-    return (this.stack[this.top] = item);
+    return (this.stack[++this.top] = item);
   }
 
   pop() {
