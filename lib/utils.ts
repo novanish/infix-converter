@@ -4,7 +4,7 @@ export const isOperator = (s: string) =>
 export const isDigitOrAlphabet = (s: string) => {
   const charCode = s.toLowerCase().charCodeAt(0);
   return (
-    (charCode >= 97 && charCode <= 122) || (charCode >= 49 && charCode <= 57)
+    (charCode >= 97 && charCode <= 122) || (charCode >= 48 && charCode <= 57)
   );
 };
 
